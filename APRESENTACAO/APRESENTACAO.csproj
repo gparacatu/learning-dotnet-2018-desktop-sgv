@@ -1,0 +1,769 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1A97FC21-DB75-4B70-9457-CE3F571167E5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>APRESENTACAO</RootNamespace>
+    <AssemblyName>APRESENTACAO</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>Z:\sgv\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://www.primetechsolucoes.com.br/apps/sgv/</InstallUrl>
+    <SupportUrl>http://www.primetechsolucoes.com.br</SupportUrl>
+    <ErrorReportUrl>http://www.primetechsolucoes.com.br</ErrorReportUrl>
+    <ProductName>SGV - Gerenciador de Vendas</ProductName>
+    <PublisherName>Prime Tech Soluções em Tecnologia</PublisherName>
+    <SuiteName>SGV_BETA</SuiteName>
+    <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>8</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>true</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>iconePrime.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>4DAAFA547E653D2703B167B170916774FC81D24F</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>APRESENTACAO_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>APRESENTACAO.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.BulletGraph.Windows, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Calculate.Base, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Chart.Base, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Chart.Windows, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Compression.Base, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Diagram.Base, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Diagram.Windows, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.DocIO.Base, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.DocIO.Windows, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Edit.Windows, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Gauge.Windows, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Grid.Base, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Grid.Grouping.Base, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Grid.Grouping.Windows, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Grid.Windows, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.GridConverter.Windows, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.GridHelperClasses.Windows, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Grouping.Base, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Grouping.Windows, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.HTMLUI.Base, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.HTMLUI.Windows, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Linq.Base, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.MIME.Base, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.OfficeChart.Base, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Pdf.Base, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.PdfViewer.Windows, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.PivotAnalysis.Base, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.PivotAnalysis.Windows, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.PivotChart.Windows, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Presentation.Base, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.ProjIO.Base, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Schedule.Base, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Schedule.Windows, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Scripting.Base, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.SfBarcode.Windows, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Shared.Base, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Shared.Windows, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.SpellChecker.Base, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Spreadsheet.Windows, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Tools.Base, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Tools.Windows, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.TreeMap.Windows, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.XlsIO.Base, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.XlsIO.Windows, Version=15.2460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcaoTelaConsultaCadastros.cs" />
+    <Compile Include="AcaoTelaCRUD.cs" />
+    <Compile Include="Connected Services\WSCorreio\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ControleFormulario.cs" />
+    <Compile Include="ControleSistema.cs" />
+    <Compile Include="FrmAbrircaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbrircaixa.Designer.cs">
+      <DependentUpon>FrmAbrircaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCadastrarPessoaFisica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadastrarPessoaFisica.Designer.cs">
+      <DependentUpon>FrmCadastrarPessoaFisica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCadastrarPessoaJuridica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadastrarPessoaJuridica.Designer.cs">
+      <DependentUpon>FrmCadastrarPessoaJuridica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCadastrarProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadastrarProduto.Designer.cs">
+      <DependentUpon>FrmCadastrarProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCadastrarUsu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadastrarUsu.Designer.cs">
+      <DependentUpon>FrmCadastrarUsu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCadastrarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadastrarUsuario.Designer.cs">
+      <DependentUpon>FrmCadastrarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCalculadora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCalculadora.Designer.cs">
+      <DependentUpon>FrmCalculadora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCategoriaCadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCategoriaCadastro.Designer.cs">
+      <DependentUpon>FrmCategoriaCadastro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCompraWindows.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCompraWindows.Designer.cs">
+      <DependentUpon>FrmCompraWindows.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConsultaCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsultaCRUD.Designer.cs">
+      <DependentUpon>FrmConsultaCRUD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFecharCaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFecharCaixa.Designer.cs">
+      <DependentUpon>FrmFecharCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFormaPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFormaPagamento.Designer.cs">
+      <DependentUpon>FrmFormaPagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogon.Designer.cs">
+      <DependentUpon>FrmLogon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenu.Designer.cs">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrincipal.Designer.cs">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRelatorioCaixas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRelatorioCaixas.Designer.cs">
+      <DependentUpon>FrmRelatorioCaixas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRelatorioCaixasPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRelatorioCaixasPreview.Designer.cs">
+      <DependentUpon>FrmRelatorioCaixasPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRelatorioCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRelatorioCompras.Designer.cs">
+      <DependentUpon>FrmRelatorioCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRelatorioComprasPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRelatorioComprasPreview.Designer.cs">
+      <DependentUpon>FrmRelatorioComprasPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRelatorioFechamentoCaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRelatorioFechamentoCaixa.Designer.cs">
+      <DependentUpon>FrmRelatorioFechamentoCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRelatorioPessoas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRelatorioPessoas.Designer.cs">
+      <DependentUpon>FrmRelatorioPessoas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRelatorioVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRelatorioVenda.Designer.cs">
+      <DependentUpon>FrmRelatorioVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRelatorioVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRelatorioVendas.Designer.cs">
+      <DependentUpon>FrmRelatorioVendas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSobre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSobre.Designer.cs">
+      <DependentUpon>FrmSobre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSplash.Designer.cs">
+      <DependentUpon>FrmSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVendaWindows.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVendaWindows.Designer.cs">
+      <DependentUpon>FrmVendaWindows.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="uspRelatorioPessoasNome.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>uspRelatorioPessoasNome.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmAbrircaixa.resx">
+      <DependentUpon>FrmAbrircaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadastrarPessoaFisica.resx">
+      <DependentUpon>FrmCadastrarPessoaFisica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadastrarPessoaJuridica.resx">
+      <DependentUpon>FrmCadastrarPessoaJuridica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadastrarProduto.resx">
+      <DependentUpon>FrmCadastrarProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadastrarUsu.resx">
+      <DependentUpon>FrmCadastrarUsu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadastrarUsuario.resx">
+      <DependentUpon>FrmCadastrarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCalculadora.resx">
+      <DependentUpon>FrmCalculadora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCategoriaCadastro.resx">
+      <DependentUpon>FrmCategoriaCadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCompraWindows.resx">
+      <DependentUpon>FrmCompraWindows.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultaCRUD.resx">
+      <DependentUpon>FrmConsultaCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFecharCaixa.resx">
+      <DependentUpon>FrmFecharCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFormaPagamento.resx">
+      <DependentUpon>FrmFormaPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogon.resx">
+      <DependentUpon>FrmLogon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenu.resx">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRelatorioCaixas.resx">
+      <DependentUpon>FrmRelatorioCaixas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRelatorioCaixasPreview.resx">
+      <DependentUpon>FrmRelatorioCaixasPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRelatorioCompras.resx">
+      <DependentUpon>FrmRelatorioCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRelatorioComprasPreview.resx">
+      <DependentUpon>FrmRelatorioComprasPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRelatorioFechamentoCaixa.resx">
+      <DependentUpon>FrmRelatorioFechamentoCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRelatorioPessoas.resx">
+      <DependentUpon>FrmRelatorioPessoas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRelatorioVenda.resx">
+      <DependentUpon>FrmRelatorioVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRelatorioVendas.resx">
+      <DependentUpon>FrmRelatorioVendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSobre.resx">
+      <DependentUpon>FrmSobre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSplash.resx">
+      <DependentUpon>FrmSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVendaWindows.resx">
+      <DependentUpon>FrmVendaWindows.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RelatorioCaixasPorData.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RelatorioCompras.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RelatorioFechamentoCaixa.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RelatorioPessoas.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RelatorioVendasPorData.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RelatorioVendasPorData1.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="APRESENTACAO_TemporaryKey.pfx" />
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.assuntoPIMaster.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.bloquearObjetoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.buscaClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.buscaContratoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.buscaPagamentoEntregaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.buscaServicosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.cancelarObjetoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.cancelarPedidoScolResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.clienteERP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.consultaCEPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.consultarPedidosInformacaoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.consultaSROResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.contratoERP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.embalagemLRSMaster.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.enderecoERP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.fechaPlpResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.fechaPlpVariosServicosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.geraDigitoVerificadorEtiquetasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.getStatusCartaoPostagemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.getStatusPLPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.integrarUsuarioScolResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.mensagemRetornoPIMaster.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.motivoPIMaster.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.obterAssuntosPIResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.obterClienteAtualizacaoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.obterEmbalagemLRSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.obterMensagemRetornoPIResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.obterMotivosPIResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.registrarPedidosInformacaoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.retorno.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.retornoCancelamentoTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.servicoERP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.solicitaEtiquetasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.solicitaPLPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.solicitarPostagemScolResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.solicitaXmlPlpResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.statusCartao.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.statusPlp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.validaEtiquetaPLPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.validaPlpResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.validarPostagemReversaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.validarPostagemSimultaneaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\APRESENTACAO.WSCorreio.verificaDisponibilidadeServicoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WSCorreio\AtendeClienteService.wsdl" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\DataSources\TRANSFERENCIA.PessoaJuridica.datasource" />
+    <None Include="Properties\DataSources\TRANSFERENCIA.RelatorioCaixa.datasource" />
+    <None Include="Properties\DataSources\TRANSFERENCIA.RelatorioPedidoItem.datasource" />
+    <None Include="Properties\DataSources\TRANSFERENCIA.RelatorioPedidos.datasource" />
+    <None Include="Properties\DataSources\TRANSFERENCIA.RelatorioVendas.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="uspRelatorioPessoasNome.xsc">
+      <DependentUpon>uspRelatorioPessoasNome.xsd</DependentUpon>
+    </None>
+    <None Include="uspRelatorioPessoasNome.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>uspRelatorioPessoasNome.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="uspRelatorioPessoasNome.xss">
+      <DependentUpon>uspRelatorioPessoasNome.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NEGOCIOS\NEGOCIOS.csproj">
+      <Project>{acc9de34-9736-49e4-a2a5-f15314fc1f90}</Project>
+      <Name>NEGOCIOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TRANSFERENCIA\TRANSFERENCIA.csproj">
+      <Project>{3b4b9d04-425e-4ccb-8946-dfd893ffcbdc}</Project>
+      <Name>TRANSFERENCIA</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gestão-de-vendas-01Novo.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AuxiliarDeCodigoRepetidos.txt" />
+    <Content Include="iconePrime.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagens\iconePrime.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\em-jesus-sou-mais-que-vencedor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Dakirby309-Windows-8-Metro-Folders-OS-Windows-8-Metro.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Folders-OS-Windows-8-Metro-icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Folders-OS-Windows-8-Metro-icon72x72.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Folders-OS-Windows-8-Metro-icon 64x64.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\b4c9b9f83f389f31cf6b40b4e3fac8f2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\windows_8_official_aero_wallpaper_by_ciandesign-d4q2274.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Windows_10_Funny_ESC.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\windows_10_hero_4k-wallpaper-3840x2160.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\fundotransparente.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\FundoNovo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\FundoNovoGlass.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Categories-applications-internet-icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Categories-applications-internet-icon 32x32.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Categories-applications-internet-icon 42x42.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Calculator-icon 48x48.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\FundoBotaoWIndows.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Folders-OS-Windows-8-Metro-icon 48X48.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Messaging-Child-New-Post-icon 48x48.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\PRIMETECHLOGO.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Login-icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\FundoBotaoWIndows2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Office-Customer-Male-Light-icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Connected Services\WSCorreio\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\WSCorreio\configuration.svcinfo" />
+    <None Include="Connected Services\WSCorreio\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\WSCorreio\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

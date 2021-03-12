@@ -1,0 +1,276 @@
+﻿			if(acaoSelecionada == AcaoTelaConsultaCadastros.CategoriaConsulta)
+
+            if (acaoSelecionada == AcaoTelaConsultaCadastros.ClienteConsulta)
+
+            if (acaoSelecionada == AcaoTelaConsultaCadastros.FilialConsulta)
+
+            if (acaoSelecionada == AcaoTelaConsultaCadastros.FornecedorConsulta)
+
+            if (acaoSelecionada == AcaoTelaConsultaCadastros.PessoaFisicaConsulta)
+
+            if (acaoSelecionada == AcaoTelaConsultaCadastros.PessoaJuridicaConsulta)
+
+            if (acaoSelecionada == AcaoTelaConsultaCadastros.ProdutoConsulta)
+
+			--------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx---------------------
+
+
+			//verifica se o texto digitado é um inteiro ou uma string
+            int IDPesquisa;
+            //int.TryParse pede um texto e tenta converter para inteiro, caso consiga joga o valor da conversão na variavel
+            if(int.TryParse(txtPesquisar.Text, out IDPesquisa) == true)
+            {
+
+            }
+			else
+			{
+			
+			
+			}
+
+			-----------------XXXXXXXXXXXXXXXXXXXXXXXXXX_---------------------------
+
+			dgvConsultaCRUD.Columns[0].Visible = false;
+
+
+			-------------XXXXXXXXXXXXXXXXXXXXXXX--------------------------------------
+			//Verifica se existe algum cliente selecionado
+            if (dgvConsultaCRUD.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Nenhum cliente foi selecionado.");
+                return;
+            }
+            //Cria um objeto Cliente para pegar os dados
+            PessoaFisica pessoaSelecionada = new PessoaFisica();
+            
+            //Joga os dados do cliente na linha selecionada para o objeto Cliente
+            pessoaSelecionada = (dgvConsultaCRUD.SelectedRows[0].DataBoundItem as PessoaFisica);
+
+            MessageBox.Show("A pessoa selecionada foi: " + pessoaSelecionada.Nome);
+
+			-----------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX--------------------------
+using System.Reflection;
+
+public FrmConsultaCRUD(AcaoTelaConsultaCadastros acaoTelaConsultaCadastros)
+        {
+            InitializeComponent();
+
+            //Precisa desabilitar o autogenerate das colunas no grid depois de inicializar os componentes
+            dgvConsultaCRUD.AutoGenerateColumns = false;
+
+
+
+//Metodo que trata as propriedades do grid quando existem objetos dentro de objetos Ex. PessoaFisica.Pessoa.PessoaID
+
+        private object CarregarPropriedade(object propriedade, string nomeDaPropriedade)
+        {
+            try
+            {
+                object retorno = "";
+                if(nomeDaPropriedade.Contains("."))
+                {
+                    PropertyInfo[] propertyInfoArray;
+                    string propriedadeAntesDoPonto;
+                    propriedadeAntesDoPonto = nomeDaPropriedade.Substring(0, nomeDaPropriedade.IndexOf("."));
+
+                    if(propriedade != null)
+                    {
+                        propertyInfoArray = propriedade.GetType().GetProperties();
+
+                        foreach (PropertyInfo propertyInfo in propertyInfoArray)
+                        {
+                            if(propertyInfo.Name == propriedadeAntesDoPonto)
+                            {
+                                retorno = CarregarPropriedade
+                                    (propertyInfo.GetValue(propriedade, null),
+                                    nomeDaPropriedade.Substring(nomeDaPropriedade.IndexOf(".")));
+                            }
+
+                        }
+                    }
+                }
+                else
+                {
+                    Type tpyPropertyType;
+                    PropertyInfo pfoPropertyInfo;
+
+                    if(propriedade != null)
+                    {
+                        tpyPropertyType = propriedade.GetType();
+                        pfoPropertyInfo = tpyPropertyType.GetProperty(nomeDaPropriedade);
+                        retorno = pfoPropertyInfo.GetValue(propriedade, null);
+                    }
+                }
+                return retorno;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
+//Continuacao no evento CellFormating do Grid
+      private void dgvConsultaCRUD_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            try
+            {
+                if((dgvConsultaCRUD.Rows[e.RowIndex].DataBoundItem != null) 
+                    && (dgvConsultaCRUD.Columns[e.ColumnIndex].DataPropertyName.Contains(".")))
+                {
+                    e.Value = CarregarPropriedade(dgvConsultaCRUD.Rows[e.RowIndex].DataBoundItem,
+                        dgvConsultaCRUD.Columns[e.ColumnIndex].DataPropertyName);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                
+            }
+        }
+
+
+
+		--------------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXX---------------------------------------
+
+
+		Via código
+
+Você disse que cria as colunas dinamicamente, o que lhe impossibilita de fazer o que eu disse acima. A solução seria iterar as colunas do DataGridView e definir os tamanhos depois de que o grid estiver populado.
+
+foreach(DataGridViewColumn column in dgNotas.Columns)
+{
+    if (column.DataPropertyName == "primeiraColuna")
+        column.Width = 100; //tamanho fixo da primeira coluna
+
+    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+}
+
+
+---------------------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-----------------------
+No caso do web service do SIGEP, o endereço é o seguinte:
+
+https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl
+
+Digite esse endereço na caixa “Address“, clique em “Go“, escolha o serviço “AtendeCliente“, dê o nome de “WSCorreios” para a referência e clique em “OK”:
+
+ //Consulta cep direto nos correios
+
+            try
+            {
+                //cria o objeto correioWS
+                var correioWS = new WSCorreio.AtendeClienteClient();
+                //Recebe os dados do cep digitado na textbox
+                var cep = correioWS.consultaCEP(txtCep.Text);
+                //coloca os dados recebidos do correio nos campos da tela
+                txtRua.Text = cep.end;
+                txtBairro.Text = cep.bairro;
+                txtCidade.Text = cep.cidade;
+                txtNumero.Focus();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erro ao consultar CEP. Detalhes: {0}" + ex.Message);
+            }
+
+
+
+			----------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXX------------------------------------
+
+			namespace APRESENTACAO
+{
+    static class Program
+    {
+        /// <summary>
+        /// Ponto de entrada principal para o aplicativo.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            //Verifica se o aplicativo já esta aberto, se estiver não abre novamente
+
+            var identificadorMutex = string.Format("{0}_{1}", "A403A6EB-6472-4B42-B5C1-C0E06F9F2SGV", System.Security.Principal.WindowsIdentity.GetCurrent().User);
+            using (var mutex = new System.Threading.Mutex(true, identificadorMutex))
+            {
+                var jaEstaRodando = !mutex.WaitOne(0, true);
+                if (jaEstaRodando)
+                {
+                    MessageBox.Show("O aplicativo SGV - Sistema de Gestão em Vendas já está sendo executado. Feche o que está aberto para iniciar novamente, ou reinicie seu computador que o problema será resolvido.", "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Application.Exit();
+                    return;
+                }
+
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new FrmPrincipal());
+
+                mutex.ReleaseMutex();
+            }
+            
+        }
+    }
+}
+
+
+
+---------------------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX_------------------------------
+
+1º - no evento Leave do textBox você converte para o formato monerário com o R$ da seguinte forma : 
+
+private void textBox1_Leave(object sender, EventArgs e)
+ {
+     textBox1.Text = Convert.ToDouble(textBox1.Text).ToString("C");
+ }   
+2º - no evento KeyPress você precisa evitar que letras sejam digitadas, fazer com que o ponto seja substituido por virgula e que exista apenas uma virgula na string, da seguinte forma : 
+
+private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < '0' || e.KeyChar > '9') &&
+               (e.KeyChar != ',' && e.KeyChar != '.' &&
+                e.KeyChar != (Char)13 && e.KeyChar != (Char)8))
+            {
+                e.KeyChar = (Char)0;
+            }
+            else
+            {
+                if (e.KeyChar == '.' || e.KeyChar == ',')
+                {
+                    if (!textBox1.Text.Contains(','))
+                    {
+                        e.KeyChar = ',';
+                    }
+                    else
+                    {
+                        e.KeyChar = (Char)0;
+                    }
+                }
+            }
+        }
+3º - no evento Enter é preciso tirar a formatação para que não gere nenhuma excessão quando o textBox receber e perder o focu novamente contendo caracteres inválidos (ex.: 'R$') por causa da formatação que já existe nele: 
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            String x = "";
+            for (int i = 0; i <= textBox1.Text.Length - 1; i++)
+            {
+                if ((textBox1.Text[i] >= '0' &&
+                    textBox1.Text[i] <= '9') ||
+                    textBox1.Text[i] == ',')
+                {
+                    x += textBox1.Text[i];
+                }
+            }
+            textBox1.Text = x;
+            textBox1.SelectAll();
+        }
+
+
+		
+Limpa a moeda da string que vai:
+
+Decimal dec = decimal.Parse(suaString.Replace("R$",""));
+
+
+
+-----------------------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXX-------------------------------
